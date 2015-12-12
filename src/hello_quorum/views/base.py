@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+import os
+
 from hello_quorum.main import app
 from hello_quorum.main import flask
 
@@ -14,3 +16,7 @@ def index():
 @app.route("/headers", methods = ("GET",), json = True)
 def headers():
     return dict(flask.request.headers)
+
+@app.route("/environ", methods = ("GET",), json = True)
+def environ():
+    return dict(os.environ)
