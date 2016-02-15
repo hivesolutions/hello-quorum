@@ -13,6 +13,6 @@ ENV PYTHONPATH /src
 ADD requirements.txt /
 ADD src /src
 
-RUN pip install -r /requirements.txt && pip install --upgrade netius
+RUN pip3 install -r /requirements.txt && pip3 install --upgrade netius
 
-CMD ["/usr/bin/python", "/src/hello_quorum/main.py"]
+CMD ["/usr/bin/python3", "/src/hello_quorum/main.py"]
