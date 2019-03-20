@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import socket
 
 from hello_quorum.main import app
 from hello_quorum.main import flask
@@ -16,6 +17,11 @@ def index():
 @app.route("/headers", methods = ("GET",), json = True)
 def headers():
     return dict(flask.request.headers)
+
+@app.route("/addresses", methods = ("GET",), json = True)
+def addresses():
+    addresses = socket.getaddrinfo(socket.gethostname(), None)
+    return dict(addresses = addresses)
 
 @app.route("/environ", methods = ("GET",), json = True)
 def environ():
